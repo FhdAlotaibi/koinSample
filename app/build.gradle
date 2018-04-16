@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        applicationId "com.koinsample"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    //support Libs
+    implementation deps.support.app_compat
+    implementation deps.support.constraint_layout
+    implementation deps.support.v4
+    implementation deps.support.design
+    implementation deps.support.cardview
+    implementation deps.support.recyclerview
+    //RxJava2
+    implementation deps.reactiveX.rxKotlin
+    implementation deps.reactiveX.rxAndroid
+    //retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.adapter_rxjava
+    implementation deps.retrofit.converter_gson
+    //OkHttp
+    implementation deps.okhttp.logging_interceptor
+    implementation deps.okhttp.runtime
+    //Gson
+    implementation deps.gson
+    //Timber
+    implementation deps.timber
+    //koin
+    implementation 'org.koin:koin-android:0.9.1'
+    implementation 'org.koin:koin-android-architecture:0.9.1'
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    // ReactiveStreams support for LiveData
+    implementation "android.arch.lifecycle:reactivestreams:1.1.1"
+    kapt "android.arch.lifecycle:compiler:1.1.1"
+    //test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
