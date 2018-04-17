@@ -1,5 +1,8 @@
-package com.koinsample.login
+package com.koinsample.app.login
 
+import com.koinsample.entities.UserDetails
+import com.koinsample.network.api.LoginApi
+import com.koinsample.network.api.LoginBody
 import io.reactivex.Single
 
 

@@ -1,4 +1,4 @@
-package com.koinsample
+package com.koinsample.base
 
 import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

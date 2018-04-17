@@ -1,5 +1,6 @@
-package com.koinsample.login
+package com.koinsample.app.login
 
+import com.koinsample.entities.UserDetails
 import io.reactivex.Single
 
 interface LoginRepository {

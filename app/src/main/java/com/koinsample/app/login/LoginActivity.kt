@@ -1,4 +1,4 @@
-package com.koinsample.login
+package com.koinsample.app.login
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.koinsample.R
+import com.koinsample.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.architecture.ext.viewModel
 import org.koin.android.ext.android.releaseContext

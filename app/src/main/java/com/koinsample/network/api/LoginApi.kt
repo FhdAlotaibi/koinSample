@@ -1,5 +1,6 @@
-package com.koinsample.login
+package com.koinsample.network.api
 
+import com.koinsample.entities.UserDetails
 import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.POST

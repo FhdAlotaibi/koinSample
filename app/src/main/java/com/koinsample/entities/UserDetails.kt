@@ -1,4 +1,4 @@
-package com.koinsample.login
+package com.koinsample.entities
 
 import com.google.gson.annotations.SerializedName
 import java.util.*

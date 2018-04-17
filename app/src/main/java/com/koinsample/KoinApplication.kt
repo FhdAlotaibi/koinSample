@@ -12,7 +12,8 @@ class KoinApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, koinModules + netowrkModule + components_modules, properties = hashMapOf(SERVER_URL to "https://demo8768859.mockable.io/"))
+        startKoin(this, koinModules + netowrkModule + components_modules,
+                properties = hashMapOf(SERVER_URL to "https://demo8768859.mockable.io/"))
     }
 
 }

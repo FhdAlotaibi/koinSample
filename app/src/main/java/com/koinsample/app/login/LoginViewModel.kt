@@ -1,7 +1,8 @@
-package com.koinsample.login
+package com.koinsample.app.login
 
 import android.arch.lifecycle.MutableLiveData
-import com.koinsample.BaseViewModel
+import com.koinsample.base.BaseViewModel
+import com.koinsample.entities.UserDetails
 import io.reactivex.Scheduler
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable

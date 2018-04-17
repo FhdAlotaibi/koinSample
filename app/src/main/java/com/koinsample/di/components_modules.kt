@@ -1,6 +1,7 @@
 package com.koinsample.di
 
-import com.koinsample.login.*
+import com.koinsample.app.login.*
+import com.koinsample.network.api.LoginApi
 import org.koin.android.architecture.ext.viewModel
 import org.koin.dsl.module.applicationContext
 
