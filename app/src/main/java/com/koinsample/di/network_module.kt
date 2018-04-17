@@ -34,7 +34,7 @@ val netowrkModule = applicationContext {
                 .connectTimeout(60L, TimeUnit.MINUTES)
                 .readTimeout(60L, TimeUnit.MINUTES)
                 .writeTimeout(60L, TimeUnit.MINUTES)
-                .addNetworkInterceptor(get())
+                .addNetworkInterceptor(get<HttpLoggingInterceptor>())
                 .build()
     }
 
@@ -50,8 +50,8 @@ inline fun <reified T> createApi(retrofit: Retrofit): T {
     return retrofit.create(T::class.java)
 }
 
-fun buildRetrofit(okHttpClient: OkHttpClient, url: String, gsonConverterFactory: GsonConverterFactory) {
-    Retrofit.Builder()
+fun buildRetrofit(okHttpClient: OkHttpClient, url: String, gsonConverterFactory: GsonConverterFactory): Retrofit {
+    return Retrofit.Builder()
             .baseUrl(url)
             .client(okHttpClient)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -60,5 +60,5 @@ fun buildRetrofit(okHttpClient: OkHttpClient, url: String, gsonConverterFactory:
 }
 
 object DatasourceProperties {
-    const val SERVER_URL = "https://demo8768859.mockable.io/"
+    const val SERVER_URL = "SERVER_URL"
 }

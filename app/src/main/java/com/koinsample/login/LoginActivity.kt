@@ -2,16 +2,19 @@ package com.koinsample.login
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.koinsample.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.architecture.ext.viewModel
-import org.koin.standalone.StandAloneContext.loadKoinModules
+import org.koin.android.ext.android.releaseContext
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
+    companion object {
+        const val LOGIN_CONTEXT = "loginContext"
+    }
 
     val loginViewModel by viewModel<LoginViewModel>()
 
@@ -34,6 +37,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    override fun onReleaseContext() {
+        releaseContext(LOGIN_CONTEXT)
+        Log.d("LoginActivity", "$LOGIN_CONTEXT has been released")
+    }
+
     private fun onLoadingStateChanged(show: Boolean) {
         progressBar.visibility = View.VISIBLE.takeIf { show } ?: View.GONE
         loginBtn.visibility = View.VISIBLE.takeIf { !show } ?: View.VISIBLE
@@ -48,4 +56,5 @@ class LoginActivity : AppCompatActivity() {
             passwordTIL.error = error
         }
     }
+
 }
